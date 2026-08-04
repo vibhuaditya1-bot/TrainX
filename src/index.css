@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-ink-100 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(34, 197, 255, 0.06), transparent 40%),
+      radial-gradient(circle at 85% 100%, rgba(168, 230, 42, 0.04), transparent 40%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-brand-500/30 text-white;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-500;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-ink-850/80 backdrop-blur-xl border border-ink-700/60 rounded-2xl;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:border-ink-600 hover:bg-ink-800/80;
+  }
+  .glass {
+    @apply bg-ink-900/60 backdrop-blur-xl border border-ink-700/50;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 hover:bg-brand-400 text-ink-950 px-5 py-3 shadow-lg shadow-brand-500/20;
+  }
+  .btn-secondary {
+    @apply btn bg-ink-700 hover:bg-ink-600 text-ink-100 px-5 py-3;
+  }
+  .btn-ghost {
+    @apply btn text-ink-200 hover:text-white hover:bg-ink-700/50 px-4 py-2;
+  }
+  .input {
+    @apply w-full bg-ink-800/70 border border-ink-600/60 rounded-xl px-4 py-3 text-ink-100 placeholder-ink-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink-200 mb-2;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium;
+  }
+  .section-title {
+    @apply font-display text-2xl font-bold text-white;
+  }
+  .stat-card {
+    @apply card p-5 flex flex-col gap-1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 via-brand-300 to-lime-400 bg-clip-text text-transparent;
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%);
+    background-size: 1000px 100%;
+  }
+}
